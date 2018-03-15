@@ -3093,6 +3093,7 @@ static CGRect viewFrame(UIView *view)
         if (_stickerKeyboardView == nil)
         {
             _stickerKeyboardView = [[TGStickerKeyboardView alloc] init];
+            _stickerKeyboardView.allowThanky = _allowThanky;
             _stickerKeyboardView.channelInfoSignal = _channelInfoSignal;
             id<TGModernConversationInputTextPanelDelegate> delegate = (id<TGModernConversationInputTextPanelDelegate>)self.delegate;
             _stickerKeyboardView.parentViewController = [delegate inputPanelParentViewController:self];

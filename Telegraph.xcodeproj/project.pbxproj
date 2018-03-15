@@ -1074,6 +1074,7 @@
 		68F7D3BA1CADF1CC00265D0A /* TGPreviewPhotoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F7D3B81CADF1CC00265D0A /* TGPreviewPhotoItemView.m */; };
 		68F7D3C51CADF1FB00265D0A /* TGPreviewWebPageItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F7D3C31CADF1FB00265D0A /* TGPreviewWebPageItemView.h */; };
 		68F7D3C61CADF1FB00265D0A /* TGPreviewWebPageItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F7D3C41CADF1FB00265D0A /* TGPreviewWebPageItemView.m */; };
+		80988FD3205A573B0076C7C2 /* ThankyAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */; };
 		9302CA2F171B581200C8559D /* VideoSliderBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9302CA2A171B581200C8559D /* VideoSliderBackground@2x.png */; };
 		9302CA31171B581200C8559D /* VideoSliderForeground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9302CA2C171B581200C8559D /* VideoSliderForeground@2x.png */; };
 		9302CA33171B581200C8559D /* VideoSliderHandle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9302CA2E171B581200C8559D /* VideoSliderHandle@2x.png */; };
@@ -6796,6 +6797,7 @@
 		68F7D3C41CADF1FB00265D0A /* TGPreviewWebPageItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGPreviewWebPageItemView.m; sourceTree = "<group>"; };
 		69F842411E67546900C110F7 /* libtgvoip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libtgvoip.xcodeproj; path = ../submodules/libtgvoip/libtgvoip.xcodeproj; sourceTree = "<group>"; };
 		69F8429E1E67589900C110F7 /* libtgvoip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = libtgvoip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThankyAssets.xcassets; sourceTree = "<group>"; };
 		9302CA2A171B581200C8559D /* VideoSliderBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VideoSliderBackground@2x.png"; path = "Resources/VideoSliderBackground@2x.png"; sourceTree = "<group>"; };
 		9302CA2C171B581200C8559D /* VideoSliderForeground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VideoSliderForeground@2x.png"; path = "Resources/VideoSliderForeground@2x.png"; sourceTree = "<group>"; };
 		9302CA2E171B581200C8559D /* VideoSliderHandle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VideoSliderHandle@2x.png"; path = "Resources/VideoSliderHandle@2x.png"; sourceTree = "<group>"; };
@@ -14013,6 +14015,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		80988FC2205A56F60076C7C2 /* ThankyGifts */ = {
+			isa = PBXGroup;
+			children = (
+				80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */,
+			);
+			path = ThankyGifts;
+			sourceTree = "<group>";
+		};
 		930384151811754100CAC996 /* Collection Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -19515,6 +19525,7 @@
 		D08805A1156E8F3600311537 = {
 			isa = PBXGroup;
 			children = (
+				80988FC2205A56F60076C7C2 /* ThankyGifts */,
 				D0B9B19419CA324D0020C9CF /* LaunchScreen.xib */,
 				D0DAA484197496240036E709 /* Icon-76.png */,
 				D0C6748E1CB8640400183765 /* Icon-167.png */,
@@ -24838,6 +24849,7 @@
 				D0C6AEFD1A726F2A0046833D /* SharedMediaDocumentStatusDownload@3x.png in Resources */,
 				D053B4051F17BF0A00E2D58A /* SecretPhotoFireMask@3x.png in Resources */,
 				684853BF1C174D4B00007D21 /* SettingsFaqIcon@2x.png in Resources */,
+				80988FD3205A573B0076C7C2 /* ThankyAssets.xcassets in Resources */,
 				096CED9B1F756AAB005C5C70 /* LocationMessagePinSmallBackground@2x.png in Resources */,
 				68D68B091C9C3A7E0016F742 /* EmbedExitFullScreenButton@2x.png in Resources */,
 				68EE347B1C873E5D002F5419 /* ShareExternalIcon@2x.png in Resources */,

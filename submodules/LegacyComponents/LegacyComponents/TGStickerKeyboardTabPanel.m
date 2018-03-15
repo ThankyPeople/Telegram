@@ -7,6 +7,16 @@
 
 #import "TGStickerPack.h"
 
+typedef NS_ENUM(NSUInteger, KeyboardTabType) {
+    KeyboardTabTypeThankyGifts,
+    KeyboardTabTypeGifs,
+    KeyboardTabTypeFavorite,
+    KeyboardTabTypeRecent,
+    KeyboardTabTypeTrending,
+    KeyboardTabTypeStickers,
+    KeyboardTabTypeSettings
+};
+
 @interface TGStickerKeyboardTabPanel () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 {
     TGStickerKeyboardViewStyle _style;
@@ -18,6 +28,8 @@
     bool _showGifs;
     bool _showTrendingFirst;
     bool _showTrendingLast;
+    bool _showThankyGifts;
+    
     NSArray *_stickerPacks;
     
     UICollectionView *_collectionView;
@@ -111,7 +123,7 @@
     _peerId = peerId;
     _title = title;
     
-    TGStickerKeyboardTabCell *cell = (TGStickerKeyboardTabCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+    TGStickerKeyboardTabCell *cell = (TGStickerKeyboardTabCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:KeyboardTabTypeTrending]];
     [cell setUrl:_avatarUrl peerId:peerId title:title];
 }
 
@@ -197,22 +209,24 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)__unused collectionView
 {
-    return 5 + ((_style == TGStickerKeyboardViewDefaultStyle) ? 1 : 0);
+    return 6 + ((_style == TGStickerKeyboardViewDefaultStyle) ? 1 : 0);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)__unused collectionView numberOfItemsInSection:(NSInteger)__unused section
 {
-    if (section == 0) {
+    if (section == KeyboardTabTypeThankyGifts) {
+        return (_showThankyGifts ? 1 : 0);
+    } else if (section == KeyboardTabTypeGifs) {
         return (_showGifs ? 1 : 0) + (_showTrendingFirst ? 1 : 0);
-    } else if (section == 1) {
+    } else if (section == KeyboardTabTypeFavorite) {
         return (_showFavorite ? 1 : 0);
-    } else if (section == 2) {
+    } else if (section == KeyboardTabTypeRecent) {
         return (_showRecent ? 1 : 0);
-    } else if (section == 3) {
+    } else if (section == KeyboardTabTypeTrending) {
         return (_showGroup ? 1 : 0);
-    } else if (section == 4) {
+    } else if (section == KeyboardTabTypeStickers) {
         return _stickerPacks.count;
-    } else if (section == 5) {
+    } else if (section == KeyboardTabTypeSettings) {
         return 1 + (_showGroupLast ? 1 : 0) + (_showTrendingLast ? 1 : 0);
     } else {
         return 0;
@@ -244,7 +258,14 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    if (indexPath.section == KeyboardTabTypeThankyGifts) {
+        TGStickerKeyboardTabSettingsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TGStickerKeyboardTabSettingsCell" forIndexPath:indexPath];
+        [cell setStyle:_style];
+        [cell setMode:TGStickerKeyboardTabSettingsCellThankyGifts];
+        [cell setBadge:nil];
+        [cell setInnerAlpha:_expanded ? 0.0f : _innerAlpha];
+        return cell;
+    } else if (indexPath.section == KeyboardTabTypeGifs) {
         TGStickerKeyboardTabSettingsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TGStickerKeyboardTabSettingsCell" forIndexPath:indexPath];
         [cell setStyle:_style];
         [cell setInnerAlpha:_innerAlpha];
@@ -261,25 +282,28 @@
         }
         
         return cell;
-    } else if (indexPath.section == 1 || indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4) {
+    } else if (indexPath.section == KeyboardTabTypeFavorite ||
+               indexPath.section == KeyboardTabTypeRecent ||
+               indexPath.section == KeyboardTabTypeTrending ||
+               indexPath.section == KeyboardTabTypeStickers) {
         TGStickerKeyboardTabCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TGStickerKeyboardTabCell" forIndexPath:indexPath];
         [cell setStyle:_style];
         
-        if (indexPath.section == 1) {
+        if (indexPath.section == KeyboardTabTypeFavorite) {
             if (_showFavorite) {
                 [cell setFavorite];
             } else {
                 [cell setNone];
             }
         }
-        else if (indexPath.section == 2) {
+        else if (indexPath.section == KeyboardTabTypeRecent) {
             if (_showRecent) {
                 [cell setRecent];
             } else {
                 [cell setNone];
             }
         }
-        else if (indexPath.section == 3) {
+        else if (indexPath.section == KeyboardTabTypeTrending) {
             if (_showGroup) {
                 [cell setUrl:_avatarUrl peerId:_peerId title:_title];
             } else {
@@ -297,7 +321,7 @@
         [cell setInnerAlpha:_innerAlpha];
         
         return cell;
-    } else if (indexPath.section == 5) {
+    } else if (indexPath.section == KeyboardTabTypeSettings) {
         if (_showGroupLast && indexPath.row == 0)
         {
             TGStickerKeyboardTabCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TGStickerKeyboardTabCell" forIndexPath:indexPath];
@@ -336,7 +360,7 @@
     if (iosMajorVersion() < 8)
         return;
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == KeyboardTabTypeGifs) {
         if (indexPath.item == 0 && _showGifs) {
             if ([cell isKindOfClass:[TGStickerKeyboardTabSettingsCell class]])
             {
@@ -360,7 +384,7 @@
     if (iosMajorVersion() < 8)
         return;
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == KeyboardTabTypeGifs) {
         if (indexPath.item == 0 && _showGifs) {
             if ([cell isKindOfClass:[TGStickerKeyboardTabSettingsCell class]])
             {
@@ -396,19 +420,26 @@
 
 - (void)collectionView:(UICollectionView *)__unused collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    if (indexPath.section == KeyboardTabTypeThankyGifts) {
+        if (_showThankyGifts) {
+            [self scrollToThankyButton];
+        }
+    } else if (indexPath.section == KeyboardTabTypeGifs) {
         if (indexPath.item == 0 && _showGifs) {
             [self scrollToGifsButton];
         } else {
             [self scrollToTrendingButton];
         }
-    } else if (indexPath.section == 1 || indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4) {
+    } else if (indexPath.section == KeyboardTabTypeFavorite ||
+               indexPath.section == KeyboardTabTypeRecent ||
+               indexPath.section == KeyboardTabTypeTrending ||
+               indexPath.section == KeyboardTabTypeStickers) {
         if (_currentStickerPackIndexChanged)
-            _currentStickerPackIndexChanged(indexPath.section - 1 + indexPath.row);
-    } else if (indexPath.section == 5) {
+            _currentStickerPackIndexChanged(indexPath.section - KeyboardTabTypeFavorite + indexPath.row);
+    } else if (indexPath.section == KeyboardTabTypeSettings) {
         if (_showGroupLast && indexPath.item == 0) {
             if (_currentStickerPackIndexChanged)
-                _currentStickerPackIndexChanged(_stickerPacks.count + 3);
+                _currentStickerPackIndexChanged(_stickerPacks.count + KeyboardTabTypeTrending);
         } else if (_showTrendingLast && (indexPath.item == 0 || indexPath.item == 1)) {
             [self scrollToTrendingButton];
         }
@@ -416,6 +447,10 @@
 }
 
 - (void)setStickerPacks:(NSArray *)stickerPacks showRecent:(bool)showRecent showFavorite:(bool)showFavorite showGroup:(bool)showGroup showGroupLast:(bool)showGroupLast showGifs:(bool)showGifs showTrendingFirst:(bool)showTrendingFirst showTrendingLast:(bool)showTrendingLast {
+    [self setStickerPacks:stickerPacks showRecent:showRecent showFavorite:showFavorite showGroup:showGroup showGroupLast:showGroupLast showGifs:showGifs showTrendingFirst:showTrendingFirst showTrendingLast:showTrendingLast showThankyGifts:NO];
+}
+
+- (void)setStickerPacks:(NSArray *)stickerPacks showRecent:(bool)showRecent showFavorite:(bool)showFavorite showGroup:(bool)showGroup showGroupLast:(bool)showGroupLast showGifs:(bool)showGifs showTrendingFirst:(bool)showTrendingFirst showTrendingLast:(bool)showTrendingLast showThankyGifts:(BOOL)showThankyGifts {
     _stickerPacks = stickerPacks;
     _showRecent = showRecent;
     _showFavorite = showFavorite;
@@ -424,6 +459,7 @@
     _showGifs = showGifs;
     _showTrendingFirst = showTrendingFirst;
     _showTrendingLast = showTrendingLast;
+    _showThankyGifts = showThankyGifts;
     
     [_collectionView reloadData];
 }
@@ -435,15 +471,15 @@
     
     if (_style != TGStickerKeyboardViewPaintStyle && _style != TGStickerKeyboardViewPaintDarkStyle)
     {
-        section = currentStickerPackIndex + 1;
+        section = currentStickerPackIndex + KeyboardTabTypeFavorite;
         
-        if (section >= 4 + _stickerPacks.count)
+        if (section >= KeyboardTabTypeStickers + _stickerPacks.count)
         {
-            section = 5 + currentStickerPackIndex - _stickerPacks.count - 3;
+            section = KeyboardTabTypeSettings + currentStickerPackIndex - _stickerPacks.count - 3;
         }
-        else if (section >= 4)
+        else if (section >= KeyboardTabTypeStickers)
         {
-            section = 4;
+            section = KeyboardTabTypeStickers;
             row = currentStickerPackIndex - 3;
         }
     }
@@ -451,13 +487,13 @@
     {
         if (currentStickerPackIndex == 0)
         {
-            section = 2;
+            section = KeyboardTabTypeRecent;
             row = 0;
         }
         else
         {
-            section = 4;
-            row = currentStickerPackIndex - 1;
+            section = KeyboardTabTypeStickers;
+            row = currentStickerPackIndex - KeyboardTabTypeFavorite;
         }
     }
  
@@ -479,6 +515,10 @@
     [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:row inSection:section] animated:animated scrollPosition:scrollPosition];
 }
 
+- (void)setThankyGiftsModeSelected {
+    [self scrollToThankyButton];
+}
+
 - (void)setCurrentGifsModeSelected {
     [self scrollToGifsButton];
 }
@@ -487,8 +527,18 @@
     [self scrollToTrendingButton];
 }
 
+- (void)scrollToThankyButton {
+    NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:KeyboardTabTypeThankyGifts];
+    [_collectionView selectItemAtIndexPath:path animated:false scrollPosition:UICollectionViewScrollPositionLeft];
+    
+    if (_navigateToThankyGifts) {
+        _navigateToThankyGifts();
+    }
+}
+
 - (void)scrollToGifsButton {
-    UICollectionViewLayoutAttributes *attributes = [_collectionLayout layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    NSIndexPath *path = [NSIndexPath indexPathForItem:0 inSection:KeyboardTabTypeGifs];
+    UICollectionViewLayoutAttributes *attributes = [_collectionLayout layoutAttributesForItemAtIndexPath:path];
     UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionNone;
     if (!CGRectContainsRect(_collectionView.bounds, attributes.frame))
     {
@@ -499,7 +549,7 @@
         else
             scrollPosition = UICollectionViewScrollPositionRight;
     }
-    [_collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:false scrollPosition:scrollPosition];
+    [_collectionView selectItemAtIndexPath:path animated:false scrollPosition:scrollPosition];
     
     if (_navigateToGifs) {
         _navigateToGifs();
@@ -507,13 +557,13 @@
 }
 
 - (void)scrollToTrendingButton {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_showGifs ? 1 : 0 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_showGifs ? 1 : 0 inSection:KeyboardTabTypeGifs];
     if (_showTrendingLast) {
         NSInteger item = 0;
-        if ([self collectionView:_collectionView numberOfItemsInSection:5] > 2)
+        if ([self collectionView:_collectionView numberOfItemsInSection:KeyboardTabTypeSettings] > 2)
             item = 1;
         
-        indexPath = [NSIndexPath indexPathForItem:item inSection:5];
+        indexPath = [NSIndexPath indexPathForItem:item inSection:KeyboardTabTypeSettings];
     }
     if (indexPath.section < [self numberOfSectionsInCollectionView:_collectionView] && indexPath.item < [self collectionView:_collectionView numberOfItemsInSection:indexPath.section]) {
         UICollectionViewLayoutAttributes *attributes = [_collectionLayout layoutAttributesForItemAtIndexPath:indexPath];
@@ -550,7 +600,7 @@
                 }
             }
         }
-        TGStickerKeyboardTabSettingsCell *cell = (TGStickerKeyboardTabSettingsCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:5]];
+        TGStickerKeyboardTabSettingsCell *cell = (TGStickerKeyboardTabSettingsCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:KeyboardTabTypeSettings]];
         if (cell != nil) {
             [cell setBadge:badge];
         }
@@ -597,7 +647,7 @@
         if (!expanded && _collectionView.contentOffset.x <= -_safeAreaInset.left + 60.0f)
             [_collectionView setContentOffset:CGPointMake(-_safeAreaInset.left, 0.0f)];
         
-        TGStickerKeyboardTabSettingsCell *cell = (TGStickerKeyboardTabSettingsCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        TGStickerKeyboardTabSettingsCell *cell = (TGStickerKeyboardTabSettingsCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:KeyboardTabTypeGifs]];
         if ([cell isKindOfClass:[TGStickerKeyboardTabSettingsCell class]] && _showGifs && !expanded)
             [cell setInnerAlpha:1.0f];
     } completion:^(BOOL finished)

@@ -1000,6 +1000,17 @@ typedef enum {
             return dictionary;
         }];
     }];
+    TGConversation *conversation = [TGDatabaseInstance() loadConversationWithId:peerId];
+
+    BOOL isBot = NO;
+    if ([self.companion isKindOfClass:[TGPrivateModernConversationCompanion class]]) {
+        TGUser *user = [TGDatabaseInstance() loadUser:((TGPrivateModernConversationCompanion *)self.companion)->_uid];
+        if (user.kind == TGUserKindBot || user.kind == TGUserKindSmartBot) {
+            isBot = true;
+        }
+    }
+    
+    _inputTextPanel.allowThanky = !conversation.isChat && !conversation.isChannel && !isBot;
     _inputTextPanel.canOpenStickersPanel = ^{
         __strong TGModernConversationController *strongSelf = weakSelf;
         if (strongSelf != nil) {

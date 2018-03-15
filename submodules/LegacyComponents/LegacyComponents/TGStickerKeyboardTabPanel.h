@@ -12,6 +12,7 @@ typedef enum
 
 @property (nonatomic, copy) void (^currentStickerPackIndexChanged)(NSUInteger);
 @property (nonatomic, copy) void (^navigateToGifs)();
+@property (nonatomic, copy) void (^navigateToThankyGifts)();
 @property (nonatomic, copy) void (^navigateToTrendingFirst)();
 @property (nonatomic, copy) void (^navigateToTrendingLast)();
 @property (nonatomic, copy) void (^openSettings)();
@@ -24,9 +25,11 @@ typedef enum
 - (instancetype)initWithFrame:(CGRect)frame style:(TGStickerKeyboardViewStyle)style;
 
 - (void)setStickerPacks:(NSArray *)stickerPacks showRecent:(bool)showRecent showFavorite:(bool)showFavorite showGroup:(bool)showGroup showGroupLast:(bool)showGroupLast showGifs:(bool)showGifs showTrendingFirst:(bool)showTrendingFirst showTrendingLast:(bool)showTrendingLast;
+- (void)setStickerPacks:(NSArray *)stickerPacks showRecent:(bool)showRecent showFavorite:(bool)showFavorite showGroup:(bool)showGroup showGroupLast:(bool)showGroupLast showGifs:(bool)showGifs showTrendingFirst:(bool)showTrendingFirst showTrendingLast:(bool)showTrendingLast showThankyGifts:(BOOL)showThankyGifts;
 - (void)setCurrentStickerPackIndex:(NSUInteger)currentStickerPackIndex animated:(bool)animated;
 - (void)setCurrentGifsModeSelected;
 - (void)setCurrentTrendingModeSelected;
+- (void)setThankyGiftsModeSelected;
 - (void)setTrendingStickersBadge:(NSString *)badge;
 
 - (void)setAvatarUrl:(NSString *)avatarUrl peerId:(int64_t)peerId title:(NSString *)title;

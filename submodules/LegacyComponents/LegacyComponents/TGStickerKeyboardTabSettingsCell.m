@@ -63,8 +63,10 @@ static void setViewFrame(UIView *view, CGRect frame)
         _imageView.image = TGComponentsImageNamed(@"StickerKeyboardSettingsIcon.png");
     } else if (mode == TGStickerKeyboardTabSettingsCellGifs) {
         _imageView.image = TGComponentsImageNamed(@"StickerKeyboardGifIcon.png");
-    } else {
+    } else if (mode == TGStickerKeyboardTabSettingsCellTrending){
         _imageView.image = TGComponentsImageNamed(@"StickerKeyboardTrendingIcon.png");
+    } else {
+        _imageView.image = [UIImage imageNamed:@"thankyGiftIcon"];
     }
     _button.hidden = mode != TGStickerKeyboardTabSettingsCellSettings;
 }

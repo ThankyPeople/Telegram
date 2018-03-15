@@ -115,6 +115,7 @@
 @property (nonatomic) bool isChannel;
 @property (nonatomic) bool inputDisabled;
 @property (nonatomic) bool displayProgress;
+@property (nonatomic) bool allowThanky;
 
 @property (nonatomic) bool keepInputPanel;
 

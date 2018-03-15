@@ -13,6 +13,7 @@
 @property (nonatomic, strong) SSignal *channelInfoSignal;
 
 @property (nonatomic, readonly) bool isGif;
+@property (nonatomic) bool allowThanky;
 
 @property (nonatomic, weak) TGViewController *parentViewController;
 @property (nonatomic, copy) void (^stickerSelected)(TGDocumentMediaAttachment *);
