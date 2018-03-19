@@ -9161,6 +9161,16 @@ typedef enum {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+- (void)inputPanelRequestedSendImage:(TGModernConversationInputTextPanel *)__unused inputTextPanel image:(UIImage *)image caption:(NSString *)caption
+{
+    NSDictionary *imageDescription = [self.companion imageDescriptionFromImage:image stickers:nil caption:caption optionalAssetUrl:nil allowRemoteCache:false timer:0];
+    
+    NSMutableArray *descriptions = [[NSMutableArray alloc] init];
+    if (imageDescription != nil)
+        [descriptions addObject:imageDescription];
+    [self.companion controllerWantsToSendImagesWithDescriptions:descriptions asReplyToMessageId:[self currentReplyMessageId] botReplyMarkup:nil];
+}
+
 - (void)inputPanelRequestedSendImages:(TGModernConversationInputTextPanel *)__unused inputTextPanel images:(NSArray *)images
 {
     __autoreleasing NSString *disabledMessage = nil;

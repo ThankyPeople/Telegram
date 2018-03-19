@@ -16,6 +16,7 @@
 @property (nonatomic) bool allowThanky;
 
 @property (nonatomic, weak) TGViewController *parentViewController;
+@property (nonatomic, copy) void (^thankyGiftSelected)(UIImage *);
 @property (nonatomic, copy) void (^stickerSelected)(TGDocumentMediaAttachment *);
 @property (nonatomic, copy) void (^gifSelected)(TGDocumentMediaAttachment *);
 @property (nonatomic, copy) void (^gifTabActive)(bool active);

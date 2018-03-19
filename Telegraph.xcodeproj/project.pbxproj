@@ -1074,6 +1074,9 @@
 		68F7D3BA1CADF1CC00265D0A /* TGPreviewPhotoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F7D3B81CADF1CC00265D0A /* TGPreviewPhotoItemView.m */; };
 		68F7D3C51CADF1FB00265D0A /* TGPreviewWebPageItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F7D3C31CADF1FB00265D0A /* TGPreviewWebPageItemView.h */; };
 		68F7D3C61CADF1FB00265D0A /* TGPreviewWebPageItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F7D3C41CADF1FB00265D0A /* TGPreviewWebPageItemView.m */; };
+		8017EBF3205ED1BC0024D227 /* ThankyGiftCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8017EBF0205ED1BC0024D227 /* ThankyGiftCell.h */; };
+		8017EBF4205ED1BC0024D227 /* ThankyGiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8017EBF1205ED1BC0024D227 /* ThankyGiftCell.m */; };
+		8017EBF5205ED1BC0024D227 /* ThankyGiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8017EBF2205ED1BC0024D227 /* ThankyGiftCell.xib */; };
 		80988FD3205A573B0076C7C2 /* ThankyAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */; };
 		9302CA2F171B581200C8559D /* VideoSliderBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9302CA2A171B581200C8559D /* VideoSliderBackground@2x.png */; };
 		9302CA31171B581200C8559D /* VideoSliderForeground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9302CA2C171B581200C8559D /* VideoSliderForeground@2x.png */; };
@@ -6797,6 +6800,9 @@
 		68F7D3C41CADF1FB00265D0A /* TGPreviewWebPageItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGPreviewWebPageItemView.m; sourceTree = "<group>"; };
 		69F842411E67546900C110F7 /* libtgvoip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libtgvoip.xcodeproj; path = ../submodules/libtgvoip/libtgvoip.xcodeproj; sourceTree = "<group>"; };
 		69F8429E1E67589900C110F7 /* libtgvoip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = libtgvoip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8017EBF0205ED1BC0024D227 /* ThankyGiftCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThankyGiftCell.h; sourceTree = "<group>"; };
+		8017EBF1205ED1BC0024D227 /* ThankyGiftCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThankyGiftCell.m; sourceTree = "<group>"; };
+		8017EBF2205ED1BC0024D227 /* ThankyGiftCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThankyGiftCell.xib; sourceTree = "<group>"; };
 		80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThankyAssets.xcassets; sourceTree = "<group>"; };
 		9302CA2A171B581200C8559D /* VideoSliderBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VideoSliderBackground@2x.png"; path = "Resources/VideoSliderBackground@2x.png"; sourceTree = "<group>"; };
 		9302CA2C171B581200C8559D /* VideoSliderForeground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VideoSliderForeground@2x.png"; path = "Resources/VideoSliderForeground@2x.png"; sourceTree = "<group>"; };
@@ -14015,9 +14021,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8017EBE6205ED18A0024D227 /* ThankyGiftCell */ = {
+			isa = PBXGroup;
+			children = (
+				8017EBF0205ED1BC0024D227 /* ThankyGiftCell.h */,
+				8017EBF1205ED1BC0024D227 /* ThankyGiftCell.m */,
+				8017EBF2205ED1BC0024D227 /* ThankyGiftCell.xib */,
+			);
+			path = ThankyGiftCell;
+			sourceTree = "<group>";
+		};
 		80988FC2205A56F60076C7C2 /* ThankyGifts */ = {
 			isa = PBXGroup;
 			children = (
+				8017EBE6205ED18A0024D227 /* ThankyGiftCell */,
 				80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */,
 			);
 			path = ThankyGifts;
@@ -23956,6 +23973,7 @@
 				D01161281F41F1330039383E /* NSArray_DcOption.h in Headers */,
 				D011619C1F41F1330039383E /* TLauth_CodeType.h in Headers */,
 				D01F94DA1E5E3DB5002627A1 /* STPDispatchFunctions.h in Headers */,
+				8017EBF3205ED1BC0024D227 /* ThankyGiftCell.h in Headers */,
 				D01F951D1E5E3DB5002627A1 /* UIToolbar+Stripe_InputAccessory.h in Headers */,
 				D0C09C681A6E974D008369D7 /* TGSharedMediaCollectionLayout.h in Headers */,
 				D011620A1F41F1340039383E /* TLDcNetworkStats.h in Headers */,
@@ -24824,6 +24842,7 @@
 				D0D5D0011B7A69AD00DAF839 /* SharedMediaEmptyLinks@3x.png in Resources */,
 				D0E3529F1E5E4127007E6EB8 /* stp_icon_chevron_left@2x.png in Resources */,
 				D00C79231BBCA4CA00F979C8 /* HockeySDKResources.bundle in Resources */,
+				8017EBF5205ED1BC0024D227 /* ThankyGiftCell.xib in Resources */,
 				930808BA18592DAA00E62B42 /* ModernContactListCreateGroupIcon@2x.png in Resources */,
 				68EE348F1C924931002F5419 /* OpenInMapsIcon@2x.png in Resources */,
 				93992D8E182A706C00F29746 /* ModernBubbleOutgoingPartial@2x.png in Resources */,
@@ -27764,6 +27783,7 @@
 				D0113A2C1C08789100C30D67 /* TGCacheIndexingItem.m in Sources */,
 				D0381B981CA4750400BF709D /* TLauth_SentCode$auth_sentCode.mm in Sources */,
 				930808F9185B2DDA00E62B42 /* TGUserInfoEditingVariantCollectionItemView.m in Sources */,
+				8017EBF4205ED1BC0024D227 /* ThankyGiftCell.m in Sources */,
 				D011612B1F41F1330039383E /* NSArray_DestroySessionRes.mm in Sources */,
 				93992D711829234F00F29746 /* TGModernClockProgressViewModel.m in Sources */,
 				934134751853E77300480294 /* TGEditingScrollViewGestureRecognizer.m in Sources */,
@@ -28706,7 +28726,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -29321,7 +29341,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "3d288e61-4eb7-41c0-87cc-4cb24f2b7517";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3d288e61-4eb7-41c0-87cc-4cb24f2b7517";
@@ -29671,7 +29691,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -29713,7 +29733,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "3d288e61-4eb7-41c0-87cc-4cb24f2b7517";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3d288e61-4eb7-41c0-87cc-4cb24f2b7517";

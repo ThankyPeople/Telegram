@@ -48,6 +48,8 @@
 
 #import "TGLegacyComponentsContext.h"
 
+#import "ThankyGiftCell.h"
+
 static const CGFloat preloadInset = 160.0f;
 static const CGFloat gifInset = 128.0f;
 
@@ -247,7 +249,7 @@ typedef enum {
         _thankyGiftsCollectionView.alwaysBounceVertical = true;
         _thankyGiftsCollectionView.delaysContentTouches = false;
         _thankyGiftsCollectionView.contentInset = UIEdgeInsetsMake(tabPanelHeight + gifInset, 0.0f, gifInset, 0.0f);
-        [_thankyGiftsCollectionView registerClass:[TGGifKeyboardCell class] forCellWithReuseIdentifier:@"TGGifKeyboardCell"];
+        [_thankyGiftsCollectionView registerNib:[UINib nibWithNibName:@"ThankyGiftCell" bundle:nil] forCellWithReuseIdentifier:@"ThankyGiftCell"];
         [self addSubview:_thankyGiftsCollectionView];
         
         UILongPressGestureRecognizer *tapRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleStickerPress:)];
@@ -855,7 +857,7 @@ typedef enum {
 {
     if (collectionView == _thankyGiftsCollectionView) {
         if (section == 0) {
-            return _recentGifs.count;
+            return 3;
         } else {
             return 0;
         }
@@ -1212,10 +1214,8 @@ typedef enum {
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView == _thankyGiftsCollectionView) {
-        TGGifKeyboardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TGGifKeyboardCell" forIndexPath:indexPath];
-        if (!_ignoreGifCellContents) {
-            [cell setDocument:_recentGifs[indexPath.item]];
-        }
+        ThankyGiftCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThankyGiftCell" forIndexPath:indexPath];
+        cell.index = indexPath.item;
         return cell;
     } else if (collectionView == _gifsCollectionView) {
         TGGifKeyboardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TGGifKeyboardCell" forIndexPath:indexPath];
@@ -1273,7 +1273,10 @@ typedef enum {
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView == _thankyGiftsCollectionView) {
-        
+        ThankyGiftCell *cell = (ThankyGiftCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        if (cell != nil && _thankyGiftSelected) {
+            _thankyGiftSelected(cell.image);
+        }
     } else if (collectionView == _gifsCollectionView) {
         TGGifKeyboardCell *cell = (TGGifKeyboardCell *)[collectionView cellForItemAtIndexPath:indexPath];
         if (cell != nil && _gifSelected) {
