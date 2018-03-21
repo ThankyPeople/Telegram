@@ -7,3 +7,6 @@ url=https://github.com/peter-iakovlev/Signals.git
 [submodule "submodules/MtProtoKit"]
 	path = submodules/MtProtoKit
 	url = https://github.com/peter-iakovlev/MtProtoKit.git
+[submodule "ThankyGifts/AMNetwork"]
+	path = ThankyGifts/AMNetwork
+	url = git@bitbucket.org:thankypeople/amnetwork.git

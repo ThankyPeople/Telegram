@@ -48,7 +48,7 @@
 
 #import "TGLegacyComponentsContext.h"
 
-#import "ThankyGiftCell.h"
+#import "TPTGProductsView.h"
 
 static const CGFloat preloadInset = 160.0f;
 static const CGFloat gifInset = 128.0f;
@@ -71,8 +71,7 @@ typedef enum {
     TGStickerKeyboardTabPanel *_tabPanel;
     CGFloat _lastContentOffset;
     
-    UICollectionView *_thankyGiftsCollectionView;
-    TGGifKeyboardBalancedLayout *_thankyGiftsCollectionLayout;
+    TPTGProductsView *_thankyGiftsView;
     
     UICollectionView *_gifsCollectionView;
     TGGifKeyboardBalancedLayout *_gifsCollectionLayout;
@@ -234,23 +233,20 @@ typedef enum {
         [_gifsCollectionView registerClass:[TGGifKeyboardCell class] forCellWithReuseIdentifier:@"TGGifKeyboardCell"];
         [self addSubview:_gifsCollectionView];
         
-        _thankyGiftsCollectionLayout = [[TGGifKeyboardBalancedLayout alloc] init];
-        _thankyGiftsCollectionLayout.preferredRowSize = TGIsPad() ? 115.0f : 93.0f;
-        _thankyGiftsCollectionLayout.sectionInset = UIEdgeInsetsZero;
-        _thankyGiftsCollectionLayout.minimumInteritemSpacing = 0.5f;
-        _thankyGiftsCollectionLayout.minimumLineSpacing = 0.5f;
-        _thankyGiftsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_thankyGiftsCollectionLayout];
-        _thankyGiftsCollectionView.delegate = self;
-        _thankyGiftsCollectionView.dataSource = self;
-        _thankyGiftsCollectionView.backgroundColor = [UIColor clearColor];
-        _thankyGiftsCollectionView.opaque = false;
-        _thankyGiftsCollectionView.showsHorizontalScrollIndicator = false;
-        _thankyGiftsCollectionView.showsVerticalScrollIndicator = false;
-        _thankyGiftsCollectionView.alwaysBounceVertical = true;
-        _thankyGiftsCollectionView.delaysContentTouches = false;
-        _thankyGiftsCollectionView.contentInset = UIEdgeInsetsMake(tabPanelHeight + gifInset, 0.0f, gifInset, 0.0f);
-        [_thankyGiftsCollectionView registerNib:[UINib nibWithNibName:@"ThankyGiftCell" bundle:nil] forCellWithReuseIdentifier:@"ThankyGiftCell"];
-        [self addSubview:_thankyGiftsCollectionView];
+        __weak TGStickerKeyboardView *weakSelf = self;
+        _thankyGiftsView = [TPTGProductsView new];
+        _thankyGiftsView.productsCollectionView.contentInset = UIEdgeInsetsMake(tabPanelHeight + gifInset, 0.0f, gifInset, 0.0f);
+        _thankyGiftsView.thankyGiftSelected = ^(UIImage *image, NSString *info) {
+            __strong TGStickerKeyboardView *strongSelf = weakSelf;
+            if (strongSelf.thankyGiftSelected) {
+                strongSelf.thankyGiftSelected(image, info);
+            }
+        };
+        _thankyGiftsView.didScrollBlock = ^(UIScrollView *scrollView) {
+            __strong TGStickerKeyboardView *strongSelf = weakSelf;
+            [strongSelf scrollViewDidScroll:scrollView];
+        };
+        [self addSubview:_thankyGiftsView];
         
         UILongPressGestureRecognizer *tapRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleStickerPress:)];
         tapRecognizer.minimumPressDuration = 0.25;
@@ -261,7 +257,6 @@ typedef enum {
         _panRecognizer.cancelsTouchesInView = false;
         [_collectionView addGestureRecognizer:_panRecognizer];
         
-        __weak TGStickerKeyboardView *weakSelf = self;
         _tabPanel = [[TGStickerKeyboardTabPanel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, frame.size.width, tabPanelHeight) style:style];
         _tabPanel.navigateToThankyGifts = ^{
             __strong TGStickerKeyboardView *strongSelf = weakSelf;
@@ -437,7 +432,7 @@ typedef enum {
     _collectionView.contentInset = UIEdgeInsetsMake(tabPanelHeight + preloadInset, 0.0f, preloadInset + _safeAreaInset.bottom, 0.0f);
     _trendingCollectionView.contentInset = UIEdgeInsetsMake(tabPanelHeight + gifInset, 0.0f, gifInset + _safeAreaInset.bottom, 0.0f);
     _gifsCollectionView.contentInset = UIEdgeInsetsMake(tabPanelHeight + gifInset, 0.0f, gifInset + _safeAreaInset.bottom, 0.0f);
-    _thankyGiftsCollectionView.contentInset = UIEdgeInsetsMake(tabPanelHeight + gifInset, 0.0f, gifInset + _safeAreaInset.bottom, 0.0f);
+    _thankyGiftsView.productsCollectionView.contentInset = UIEdgeInsetsMake(tabPanelHeight + gifInset, 0.0f, gifInset + _safeAreaInset.bottom, 0.0f);
 }
 
 - (void)setChannelInfoSignal:(SSignal *)channelInfoSignal
@@ -812,27 +807,27 @@ typedef enum {
         _collectionView.frame = CGRectMake(left, -preloadInset, width, size.height + preloadInset * 2.0f);
         _gifsCollectionView.frame = CGRectMake(-size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
         _trendingCollectionView.frame = CGRectMake(size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
-        _thankyGiftsCollectionView.frame = CGRectMake(-size.width * 2.0 + left, -gifInset, width, size.height + gifInset * 2.0f);
+        _thankyGiftsView.frame = CGRectMake(-size.width * 2.0 + left, -gifInset, width, size.height + gifInset * 2.0f);
     } else if (_mode == TGStickerKeyboardViewModeGifs) {
         _collectionView.frame = CGRectMake(size.width + left, -preloadInset, width, size.height + preloadInset * 2.0f);
         _gifsCollectionView.frame = CGRectMake(left, -gifInset, width, size.height + gifInset * 2.0f);
         _trendingCollectionView.frame = CGRectMake(size.width * 2.0f + left, -gifInset, width, size.height + gifInset * 2.0f);
-        _thankyGiftsCollectionView.frame = CGRectMake(-size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
+        _thankyGiftsView.frame = CGRectMake(-size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
     } else if (_mode == TGStickerKeyboardViewModeThankyGifts) {
         _collectionView.frame = CGRectMake(size.width * 2.0 + left, -preloadInset, width, size.height + preloadInset * 2.0f);
         _gifsCollectionView.frame = CGRectMake(size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
         _trendingCollectionView.frame = CGRectMake(size.width * 3.0f + left, -gifInset, width, size.height + gifInset * 2.0f);
-        _thankyGiftsCollectionView.frame = CGRectMake(left, -gifInset, width, size.height + gifInset * 2.0f);
+        _thankyGiftsView.frame = CGRectMake(left, -gifInset, width, size.height + gifInset * 2.0f);
     } else {
         _collectionView.frame = CGRectMake(-size.width * 2.0 + left, -preloadInset, width, size.height + preloadInset * 2.0f);
         _gifsCollectionView.frame = CGRectMake(-size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
         _trendingCollectionView.frame = CGRectMake(left, -gifInset, width, size.height + gifInset * 2.0f);
-        _thankyGiftsCollectionView.frame = CGRectMake(-size.width * 3.0 + left, -gifInset, width, size.height + gifInset * 2.0f);
+        _thankyGiftsView.frame = CGRectMake(-size.width * 3.0 + left, -gifInset, width, size.height + gifInset * 2.0f);
     }
     [_collectionLayout invalidateLayout];
     [_gifsCollectionLayout invalidateLayout];
     [_trendingCollectionLayout invalidateLayout];
-    [_thankyGiftsCollectionLayout invalidateLayout];
+    [_thankyGiftsView.productsCollectionView.collectionViewLayout invalidateLayout];
     
     CGFloat stripeHeight = TGScreenPixel;
     _topStripe.frame = CGRectMake(0.0f, 0.0f, size.width, stripeHeight);
@@ -840,9 +835,7 @@ typedef enum {
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    if (collectionView == _thankyGiftsCollectionView) {
-        return 1;
-    } else if (collectionView == _gifsCollectionView) {
+    if (collectionView == _gifsCollectionView) {
         return 1;
     } else if (collectionView == _trendingCollectionView) {
         return 1;
@@ -855,13 +848,7 @@ typedef enum {
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (collectionView == _thankyGiftsCollectionView) {
-        if (section == 0) {
-            return 3;
-        } else {
-            return 0;
-        }
-    } else if (collectionView == _gifsCollectionView) {
+    if (collectionView == _gifsCollectionView) {
         if (section == 0) {
             return _recentGifs.count;
         } else {
@@ -893,9 +880,7 @@ typedef enum {
 
 - (CGSize)collectionView:(UICollectionView *)__unused collectionView layout:(UICollectionViewLayout*)__unused collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (collectionView == _thankyGiftsCollectionView) {
-        return CGSizeMake(30.0f, 30.0f);
-    } else if (collectionView == _gifsCollectionView) {
+    if (collectionView == _gifsCollectionView) {
         return CGSizeMake(30.0f, 30.0f);
     } else if (collectionView == _trendingCollectionView) {
         return CGSizeMake(collectionViewLayout.collectionView.bounds.size.width, 124.0f);
@@ -913,9 +898,7 @@ typedef enum {
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    if (collectionView == _thankyGiftsCollectionView) {
-        return UIEdgeInsetsZero;
-    } else if (collectionView == _gifsCollectionView) {
+    if (collectionView == _gifsCollectionView) {
         return UIEdgeInsetsZero;
     } else if (collectionView == _trendingCollectionView) {
         return UIEdgeInsetsZero;
@@ -949,9 +932,7 @@ typedef enum {
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)__unused collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)__unused section
 {
-    if (collectionView == _thankyGiftsCollectionView) {
-        return 0.0f;
-    } else if (collectionView == _gifsCollectionView) {
+    if (collectionView == _gifsCollectionView) {
         return 0.0f;
     } else if (collectionView == _trendingCollectionView) {
         return 0.0f;
@@ -962,9 +943,7 @@ typedef enum {
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)__unused collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)__unused section
 {
-    if (collectionView == _thankyGiftsCollectionView) {
-        return 0.0f;
-    } else if (collectionView == _gifsCollectionView) {
+    if (collectionView == _gifsCollectionView) {
         return 0.0f;
     } else if (collectionView == _trendingCollectionView) {
         return 0.0f;
@@ -981,13 +960,13 @@ typedef enum {
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView == _collectionView || scrollView == _trendingCollectionView || (scrollView == _gifsCollectionView && _mode == TGStickerKeyboardViewModeGifs) || (scrollView == _thankyGiftsCollectionView && _mode == TGStickerKeyboardViewModeThankyGifts))
+    if (scrollView == _collectionView || scrollView == _trendingCollectionView || (scrollView == _gifsCollectionView && _mode == TGStickerKeyboardViewModeGifs) || (scrollView == _thankyGiftsView.productsCollectionView && _mode == TGStickerKeyboardViewModeThankyGifts))
     {
         CGFloat delta = scrollView.contentOffset.y - _lastContentOffset;
         _lastContentOffset = scrollView.contentOffset.y;
         
         CGFloat inset = preloadInset;
-        if (scrollView == _trendingCollectionView || scrollView == _gifsCollectionView || scrollView == _thankyGiftsCollectionView) {
+        if (scrollView == _trendingCollectionView || scrollView == _gifsCollectionView || scrollView == _thankyGiftsView.productsCollectionView) {
             inset = gifInset;
         }
         
@@ -1052,7 +1031,7 @@ typedef enum {
     if (_style != TGStickerKeyboardViewDefaultStyle || decelerate)
         return;
     
-    if (scrollView == _collectionView || scrollView == _trendingCollectionView || scrollView == _gifsCollectionView || scrollView == _thankyGiftsCollectionView)
+    if (scrollView == _collectionView || scrollView == _trendingCollectionView || scrollView == _gifsCollectionView || scrollView == _thankyGiftsView.productsCollectionView)
     {
         if (_expanded)
             return;
@@ -1088,7 +1067,7 @@ typedef enum {
     [_collectionView setContentOffset:_collectionView.contentOffset animated:false];
     [_trendingCollectionView setContentOffset:_trendingCollectionView.contentOffset animated:false];
     [_gifsCollectionView setContentOffset:_gifsCollectionView.contentOffset animated:false];
-    [_thankyGiftsCollectionView setContentOffset:_thankyGiftsCollectionView.contentOffset animated:false];
+    [_thankyGiftsView.productsCollectionView setContentOffset:_thankyGiftsView.productsCollectionView.contentOffset animated:false];
     
     [UIView animateWithDuration:0.3 delay:0.0 options:7 << 16 animations:^
     {
@@ -1213,11 +1192,7 @@ typedef enum {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (collectionView == _thankyGiftsCollectionView) {
-        ThankyGiftCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ThankyGiftCell" forIndexPath:indexPath];
-        cell.index = indexPath.item;
-        return cell;
-    } else if (collectionView == _gifsCollectionView) {
+    if (collectionView == _gifsCollectionView) {
         TGGifKeyboardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TGGifKeyboardCell" forIndexPath:indexPath];
         if (!_ignoreGifCellContents) {
             [cell setDocument:_recentGifs[indexPath.item]];
@@ -1272,12 +1247,7 @@ typedef enum {
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (collectionView == _thankyGiftsCollectionView) {
-        ThankyGiftCell *cell = (ThankyGiftCell *)[collectionView cellForItemAtIndexPath:indexPath];
-        if (cell != nil && _thankyGiftSelected) {
-            _thankyGiftSelected(cell.image);
-        }
-    } else if (collectionView == _gifsCollectionView) {
+    if (collectionView == _gifsCollectionView) {
         TGGifKeyboardCell *cell = (TGGifKeyboardCell *)[collectionView cellForItemAtIndexPath:indexPath];
         if (cell != nil && _gifSelected) {
             _gifSelected(_recentGifs[indexPath.row]);
@@ -1913,22 +1883,22 @@ typedef enum {
                 _collectionView.frame = CGRectMake(left, -preloadInset, width, size.height + preloadInset * 2.0f);
                 _gifsCollectionView.frame = CGRectMake(-size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
                 _trendingCollectionView.frame = CGRectMake(size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
-                _thankyGiftsCollectionView.frame = CGRectMake(-size.width * 2.0 + left, -gifInset, width, size.height + gifInset * 2.0f);
+                _thankyGiftsView.frame = CGRectMake(-size.width * 2.0 + left, -gifInset, width, size.height + gifInset * 2.0f);
             } else if (_mode == TGStickerKeyboardViewModeGifs) {
                 _collectionView.frame = CGRectMake(size.width + left, -preloadInset, width, size.height + preloadInset * 2.0f);
                 _gifsCollectionView.frame = CGRectMake(left, -gifInset, width, size.height + gifInset * 2.0f);
                 _trendingCollectionView.frame = CGRectMake(size.width * 2.0f + left, -gifInset, width, size.height + gifInset * 2.0f);
-                _thankyGiftsCollectionView.frame = CGRectMake(-size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
+                _thankyGiftsView.frame = CGRectMake(-size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
             } else if (_mode == TGStickerKeyboardViewModeThankyGifts) {
                 _collectionView.frame = CGRectMake(size.width * 2.0 + left, -preloadInset, width, size.height + preloadInset * 2.0f);
                 _gifsCollectionView.frame = CGRectMake(size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
                 _trendingCollectionView.frame = CGRectMake(size.width * 3.0f + left, -gifInset, width, size.height + gifInset * 2.0f);
-                _thankyGiftsCollectionView.frame = CGRectMake(left, -gifInset, width, size.height + gifInset * 2.0f);
+                _thankyGiftsView.frame = CGRectMake(left, -gifInset, width, size.height + gifInset * 2.0f);
             } else {
                 _collectionView.frame = CGRectMake(-size.width * 2.0 + left, -preloadInset, width, size.height + preloadInset * 2.0f);
                 _gifsCollectionView.frame = CGRectMake(-size.width + left, -gifInset, width, size.height + gifInset * 2.0f);
                 _trendingCollectionView.frame = CGRectMake(left, -gifInset, width, size.height + gifInset * 2.0f);
-                _thankyGiftsCollectionView.frame = CGRectMake(-size.width * 3.0 + left, -gifInset, width, size.height + gifInset * 2.0f);
+                _thankyGiftsView.frame = CGRectMake(-size.width * 3.0 + left, -gifInset, width, size.height + gifInset * 2.0f);
             }
         }];
         

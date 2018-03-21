@@ -3098,12 +3098,12 @@ static CGRect viewFrame(UIView *view)
             id<TGModernConversationInputTextPanelDelegate> delegate = (id<TGModernConversationInputTextPanelDelegate>)self.delegate;
             _stickerKeyboardView.parentViewController = [delegate inputPanelParentViewController:self];
             __weak TGModernConversationInputTextPanel *weakSelf = self;
-            _stickerKeyboardView.thankyGiftSelected = ^(UIImage *image) {
+            _stickerKeyboardView.thankyGiftSelected = ^(UIImage *image, NSString *info) {
                 __strong TGModernConversationInputTextPanel *strongSelf = weakSelf;
                 if (strongSelf != nil) {
                     id<TGModernConversationInputTextPanelDelegate> delegate = (id<TGModernConversationInputTextPanelDelegate>)strongSelf.delegate;
                     
-                    [delegate inputPanelRequestedSendImage:strongSelf image:image caption:@"For more info check https://t.me/ThankyCoffeeBot"];
+                    [delegate inputPanelRequestedSendImage:strongSelf image:image caption:[NSString stringWithFormat:@"For more info check: %@", info]];
                     
                     if (strongSelf.isCustomKeyboardExpanded)
                         [strongSelf setCustomKeyboardExpanded:false animated:true];

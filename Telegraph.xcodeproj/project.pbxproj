@@ -1074,12 +1074,37 @@
 		68F7D3BA1CADF1CC00265D0A /* TGPreviewPhotoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F7D3B81CADF1CC00265D0A /* TGPreviewPhotoItemView.m */; };
 		68F7D3C51CADF1FB00265D0A /* TGPreviewWebPageItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F7D3C31CADF1FB00265D0A /* TGPreviewWebPageItemView.h */; };
 		68F7D3C61CADF1FB00265D0A /* TGPreviewWebPageItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F7D3C41CADF1FB00265D0A /* TGPreviewWebPageItemView.m */; };
-		8017EBF3205ED1BC0024D227 /* ThankyGiftCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8017EBF0205ED1BC0024D227 /* ThankyGiftCell.h */; };
-		8017EBF4205ED1BC0024D227 /* ThankyGiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8017EBF1205ED1BC0024D227 /* ThankyGiftCell.m */; };
-		8017EBF5205ED1BC0024D227 /* ThankyGiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8017EBF2205ED1BC0024D227 /* ThankyGiftCell.xib */; };
-		8017EC17205FADD30024D227 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8017EC0C205FADD10024D227 /* Crashlytics.framework */; };
-		8017EC18205FADD30024D227 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8017EC16205FADD20024D227 /* Fabric.framework */; };
+		8017EBF3205ED1BC0024D227 /* TPTGThankyGiftCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8017EBF0205ED1BC0024D227 /* TPTGThankyGiftCell.h */; };
+		8017EBF4205ED1BC0024D227 /* TPTGThankyGiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8017EBF1205ED1BC0024D227 /* TPTGThankyGiftCell.m */; };
+		8017EBF5205ED1BC0024D227 /* TPTGThankyGiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8017EBF2205ED1BC0024D227 /* TPTGThankyGiftCell.xib */; };
+		807316B520610FA000FE13AE /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807316B320610F9F00FE13AE /* Fabric.framework */; };
+		807316B620610FA000FE13AE /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807316B420610FA000FE13AE /* Crashlytics.framework */; };
+		8073173E2061109500FE13AE /* libAMNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 807317372061104F00FE13AE /* libAMNetwork.a */; };
+		80731750206118B500FE13AE /* TPTGServiceProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 8073174E206118B500FE13AE /* TPTGServiceProvider.h */; };
+		80731751206118B500FE13AE /* TPTGServiceProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8073174F206118B500FE13AE /* TPTGServiceProvider.m */; };
+		80731757206119A400FE13AE /* TPTGBaseServiceRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80731755206119A400FE13AE /* TPTGBaseServiceRequest.h */; };
+		80731758206119A400FE13AE /* TPTGBaseServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80731756206119A400FE13AE /* TPTGBaseServiceRequest.m */; };
+		8073175C206119ED00FE13AE /* TPTGProductsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8073175A206119ED00FE13AE /* TPTGProductsRequest.m */; };
+		8073176120611E9000FE13AE /* TPTGProductsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8073175F20611E9000FE13AE /* TPTGProductsManager.h */; };
+		8073176220611E9000FE13AE /* TPTGProductsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8073176020611E9000FE13AE /* TPTGProductsManager.m */; };
 		80988FD3205A573B0076C7C2 /* ThankyAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */; };
+		80EA2E1B20621D1C00200666 /* TPTGProductsRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E1A20621D1C00200666 /* TPTGProductsRequest.h */; };
+		80EA2E1E20621DCA00200666 /* TPTGProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E1C20621DCA00200666 /* TPTGProduct.h */; };
+		80EA2E1F20621DCA00200666 /* TPTGProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA2E1D20621DCA00200666 /* TPTGProduct.m */; };
+		80EA2E3B20622BCB00200666 /* TPTGPrice.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E3920622BCB00200666 /* TPTGPrice.h */; };
+		80EA2E3C20622BCB00200666 /* TPTGPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA2E3A20622BCB00200666 /* TPTGPrice.m */; };
+		80EA2E3F20622C1000200666 /* TPTGCurrency.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E3D20622C1000200666 /* TPTGCurrency.h */; };
+		80EA2E4020622C1000200666 /* TPTGCurrency.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA2E3E20622C1000200666 /* TPTGCurrency.m */; };
+		80EA2E4B20622DF800200666 /* TPTGBaseServiceObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E4920622DF800200666 /* TPTGBaseServiceObject.h */; };
+		80EA2E4C20622DF800200666 /* TPTGBaseServiceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA2E4A20622DF800200666 /* TPTGBaseServiceObject.m */; };
+		80EA2E58206240E900200666 /* TPTGProductsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E56206240E900200666 /* TPTGProductsView.h */; };
+		80EA2E59206240E900200666 /* TPTGProductsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA2E57206240E900200666 /* TPTGProductsView.m */; };
+		80EA2E6020625D8800200666 /* TPTGPaymentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E5E20625D8800200666 /* TPTGPaymentRequest.h */; };
+		80EA2E6120625D8800200666 /* TPTGPaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA2E5F20625D8800200666 /* TPTGPaymentRequest.m */; };
+		80EA2E68206269F000200666 /* TPTGCompletePaymentRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E66206269F000200666 /* TPTGCompletePaymentRequest.h */; };
+		80EA2E69206269F000200666 /* TPTGCompletePaymentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA2E67206269F000200666 /* TPTGCompletePaymentRequest.m */; };
+		80EA2E7220626CD100200666 /* TPTGDownloadFileRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EA2E7020626CD100200666 /* TPTGDownloadFileRequest.h */; };
+		80EA2E7320626CD100200666 /* TPTGDownloadFileRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EA2E7120626CD100200666 /* TPTGDownloadFileRequest.m */; };
 		9302CA2F171B581200C8559D /* VideoSliderBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9302CA2A171B581200C8559D /* VideoSliderBackground@2x.png */; };
 		9302CA31171B581200C8559D /* VideoSliderForeground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9302CA2C171B581200C8559D /* VideoSliderForeground@2x.png */; };
 		9302CA33171B581200C8559D /* VideoSliderHandle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9302CA2E171B581200C8559D /* VideoSliderHandle@2x.png */; };
@@ -4848,6 +4873,20 @@
 			remoteGlobalIDString = 69F842361E67540700C110F7;
 			remoteInfo = libtgvoip;
 		};
+		807317362061104F00FE13AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 807317322061104E00FE13AE /* AMNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 594662B01ECD8A3000A6F044;
+			remoteInfo = AMNetwork;
+		};
+		8073173C2061108E00FE13AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 807317322061104E00FE13AE /* AMNetwork.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 594662AF1ECD8A3000A6F044;
+			remoteInfo = AMNetwork;
+		};
 		D01777361F1F8FA90044446D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D01777321F1F8FA80044446D /* LegacyComponents.xcodeproj */;
@@ -6802,12 +6841,37 @@
 		68F7D3C41CADF1FB00265D0A /* TGPreviewWebPageItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGPreviewWebPageItemView.m; sourceTree = "<group>"; };
 		69F842411E67546900C110F7 /* libtgvoip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libtgvoip.xcodeproj; path = ../submodules/libtgvoip/libtgvoip.xcodeproj; sourceTree = "<group>"; };
 		69F8429E1E67589900C110F7 /* libtgvoip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = libtgvoip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8017EBF0205ED1BC0024D227 /* ThankyGiftCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThankyGiftCell.h; sourceTree = "<group>"; };
-		8017EBF1205ED1BC0024D227 /* ThankyGiftCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThankyGiftCell.m; sourceTree = "<group>"; };
-		8017EBF2205ED1BC0024D227 /* ThankyGiftCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThankyGiftCell.xib; sourceTree = "<group>"; };
-		8017EC0C205FADD10024D227 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		8017EC16205FADD20024D227 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		8017EBF0205ED1BC0024D227 /* TPTGThankyGiftCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGThankyGiftCell.h; sourceTree = "<group>"; };
+		8017EBF1205ED1BC0024D227 /* TPTGThankyGiftCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGThankyGiftCell.m; sourceTree = "<group>"; };
+		8017EBF2205ED1BC0024D227 /* TPTGThankyGiftCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPTGThankyGiftCell.xib; sourceTree = "<group>"; };
+		807316B320610F9F00FE13AE /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		807316B420610FA000FE13AE /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		807317322061104E00FE13AE /* AMNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AMNetwork.xcodeproj; path = AMNetwork/AMNetwork.xcodeproj; sourceTree = "<group>"; };
+		8073174E206118B500FE13AE /* TPTGServiceProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGServiceProvider.h; sourceTree = "<group>"; };
+		8073174F206118B500FE13AE /* TPTGServiceProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGServiceProvider.m; sourceTree = "<group>"; };
+		80731755206119A400FE13AE /* TPTGBaseServiceRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGBaseServiceRequest.h; sourceTree = "<group>"; };
+		80731756206119A400FE13AE /* TPTGBaseServiceRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGBaseServiceRequest.m; sourceTree = "<group>"; };
+		8073175A206119ED00FE13AE /* TPTGProductsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGProductsRequest.m; sourceTree = "<group>"; };
+		8073175F20611E9000FE13AE /* TPTGProductsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGProductsManager.h; sourceTree = "<group>"; };
+		8073176020611E9000FE13AE /* TPTGProductsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGProductsManager.m; sourceTree = "<group>"; };
 		80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ThankyAssets.xcassets; sourceTree = "<group>"; };
+		80EA2E1A20621D1C00200666 /* TPTGProductsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTGProductsRequest.h; sourceTree = "<group>"; };
+		80EA2E1C20621DCA00200666 /* TPTGProduct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGProduct.h; sourceTree = "<group>"; };
+		80EA2E1D20621DCA00200666 /* TPTGProduct.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGProduct.m; sourceTree = "<group>"; };
+		80EA2E3920622BCB00200666 /* TPTGPrice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGPrice.h; sourceTree = "<group>"; };
+		80EA2E3A20622BCB00200666 /* TPTGPrice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGPrice.m; sourceTree = "<group>"; };
+		80EA2E3D20622C1000200666 /* TPTGCurrency.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGCurrency.h; sourceTree = "<group>"; };
+		80EA2E3E20622C1000200666 /* TPTGCurrency.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGCurrency.m; sourceTree = "<group>"; };
+		80EA2E4920622DF800200666 /* TPTGBaseServiceObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGBaseServiceObject.h; sourceTree = "<group>"; };
+		80EA2E4A20622DF800200666 /* TPTGBaseServiceObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGBaseServiceObject.m; sourceTree = "<group>"; };
+		80EA2E56206240E900200666 /* TPTGProductsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGProductsView.h; sourceTree = "<group>"; };
+		80EA2E57206240E900200666 /* TPTGProductsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGProductsView.m; sourceTree = "<group>"; };
+		80EA2E5E20625D8800200666 /* TPTGPaymentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGPaymentRequest.h; sourceTree = "<group>"; };
+		80EA2E5F20625D8800200666 /* TPTGPaymentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGPaymentRequest.m; sourceTree = "<group>"; };
+		80EA2E66206269F000200666 /* TPTGCompletePaymentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGCompletePaymentRequest.h; sourceTree = "<group>"; };
+		80EA2E67206269F000200666 /* TPTGCompletePaymentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGCompletePaymentRequest.m; sourceTree = "<group>"; };
+		80EA2E7020626CD100200666 /* TPTGDownloadFileRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTGDownloadFileRequest.h; sourceTree = "<group>"; };
+		80EA2E7120626CD100200666 /* TPTGDownloadFileRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTGDownloadFileRequest.m; sourceTree = "<group>"; };
 		9302CA2A171B581200C8559D /* VideoSliderBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VideoSliderBackground@2x.png"; path = "Resources/VideoSliderBackground@2x.png"; sourceTree = "<group>"; };
 		9302CA2C171B581200C8559D /* VideoSliderForeground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VideoSliderForeground@2x.png"; path = "Resources/VideoSliderForeground@2x.png"; sourceTree = "<group>"; };
 		9302CA2E171B581200C8559D /* VideoSliderHandle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VideoSliderHandle@2x.png"; path = "Resources/VideoSliderHandle@2x.png"; sourceTree = "<group>"; };
@@ -10188,7 +10252,7 @@
 		D0876FE5196F4C33005740CE /* TGGenericPeerMediaGalleryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGGenericPeerMediaGalleryModel.m; sourceTree = "<group>"; };
 		D0876FE719702474005740CE /* TGModernGalleryZoomableScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGModernGalleryZoomableScrollView.h; sourceTree = "<group>"; };
 		D0876FE819702474005740CE /* TGModernGalleryZoomableScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGModernGalleryZoomableScrollView.m; sourceTree = "<group>"; };
-		D08805AC156E8F3600311537 /* Telegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08805AC156E8F3600311537 /* Thanky Telegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Thanky Telegram.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08805B0156E8F3600311537 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D08805B2156E8F3600311537 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D08805B4156E8F3600311537 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -11596,6 +11660,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8073173E2061109500FE13AE /* libAMNetwork.a in Frameworks */,
 				D08805B3156E8F3600311537 /* Foundation.framework in Frameworks */,
 				D08805B1156E8F3600311537 /* UIKit.framework in Frameworks */,
 				D0AE3ECA1F6847660069BC90 /* GLKit.framework in Frameworks */,
@@ -11617,7 +11682,7 @@
 				D00C79211BBCA4CA00F979C8 /* HockeySDK.framework in Frameworks */,
 				D0CD8FF71BB33B9900E05F40 /* SafariServices.framework in Frameworks */,
 				6836F8F51BB262CC00D3A77B /* WatchConnectivity.framework in Frameworks */,
-				8017EC17205FADD30024D227 /* Crashlytics.framework in Frameworks */,
+				807316B520610FA000FE13AE /* Fabric.framework in Frameworks */,
 				D0CB068D1ADC8DCE005E298F /* SSignalKit.framework in Frameworks */,
 				D0C09C901A6E98A4008369D7 /* OpenGLES.framework in Frameworks */,
 				D0C09C8F1A6E9897008369D7 /* CoreImage.framework in Frameworks */,
@@ -11630,8 +11695,8 @@
 				933AA4A118609ADB000AA848 /* QuickLook.framework in Frameworks */,
 				93EB7AAE184F508D00891DBF /* Accelerate.framework in Frameworks */,
 				933E6A3F170B300100651252 /* MediaPlayer.framework in Frameworks */,
+				807316B620610FA000FE13AE /* Crashlytics.framework in Frameworks */,
 				93A109BF1705D77C00FE4F89 /* MobileCoreServices.framework in Frameworks */,
-				8017EC18205FADD30024D227 /* Fabric.framework in Frameworks */,
 				9389A8D51697A31D00B68E92 /* AssetsLibrary.framework in Frameworks */,
 				93985171162F8A5A009DBCA5 /* MapKit.framework in Frameworks */,
 				935B6E301628850B00A2E265 /* MessageUI.framework in Frameworks */,
@@ -14027,25 +14092,90 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8017EBE6205ED18A0024D227 /* ThankyGiftCell */ = {
+		807317332061104E00FE13AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8017EBF0205ED1BC0024D227 /* ThankyGiftCell.h */,
-				8017EBF1205ED1BC0024D227 /* ThankyGiftCell.m */,
-				8017EBF2205ED1BC0024D227 /* ThankyGiftCell.xib */,
+				807317372061104F00FE13AE /* libAMNetwork.a */,
 			);
-			path = ThankyGiftCell;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		807317432061183A00FE13AE /* ServiceProvider */ = {
+			isa = PBXGroup;
+			children = (
+				807317532061193E00FE13AE /* Requests */,
+				8073174E206118B500FE13AE /* TPTGServiceProvider.h */,
+				8073174F206118B500FE13AE /* TPTGServiceProvider.m */,
+			);
+			path = ServiceProvider;
+			sourceTree = "<group>";
+		};
+		807317532061193E00FE13AE /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				80731755206119A400FE13AE /* TPTGBaseServiceRequest.h */,
+				80731756206119A400FE13AE /* TPTGBaseServiceRequest.m */,
+				80EA2E1A20621D1C00200666 /* TPTGProductsRequest.h */,
+				8073175A206119ED00FE13AE /* TPTGProductsRequest.m */,
+				80EA2E5E20625D8800200666 /* TPTGPaymentRequest.h */,
+				80EA2E5F20625D8800200666 /* TPTGPaymentRequest.m */,
+				80EA2E66206269F000200666 /* TPTGCompletePaymentRequest.h */,
+				80EA2E67206269F000200666 /* TPTGCompletePaymentRequest.m */,
+				80EA2E7020626CD100200666 /* TPTGDownloadFileRequest.h */,
+				80EA2E7120626CD100200666 /* TPTGDownloadFileRequest.m */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		8073175E20611E8300FE13AE /* ProductsManager */ = {
+			isa = PBXGroup;
+			children = (
+				80EA2E3820622BB800200666 /* Product */,
+				8073175F20611E9000FE13AE /* TPTGProductsManager.h */,
+				8073176020611E9000FE13AE /* TPTGProductsManager.m */,
+			);
+			path = ProductsManager;
 			sourceTree = "<group>";
 		};
 		80988FC2205A56F60076C7C2 /* ThankyGifts */ = {
 			isa = PBXGroup;
 			children = (
-				8017EC0C205FADD10024D227 /* Crashlytics.framework */,
-				8017EC16205FADD20024D227 /* Fabric.framework */,
-				8017EBE6205ED18A0024D227 /* ThankyGiftCell */,
+				80EA2E4D20623D9900200666 /* CollectionView */,
+				8073175E20611E8300FE13AE /* ProductsManager */,
+				807317432061183A00FE13AE /* ServiceProvider */,
+				807317322061104E00FE13AE /* AMNetwork.xcodeproj */,
+				807316B420610FA000FE13AE /* Crashlytics.framework */,
+				807316B320610F9F00FE13AE /* Fabric.framework */,
 				80988FD2205A573B0076C7C2 /* ThankyAssets.xcassets */,
 			);
 			path = ThankyGifts;
+			sourceTree = "<group>";
+		};
+		80EA2E3820622BB800200666 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				80EA2E1C20621DCA00200666 /* TPTGProduct.h */,
+				80EA2E1D20621DCA00200666 /* TPTGProduct.m */,
+				80EA2E3920622BCB00200666 /* TPTGPrice.h */,
+				80EA2E3A20622BCB00200666 /* TPTGPrice.m */,
+				80EA2E3D20622C1000200666 /* TPTGCurrency.h */,
+				80EA2E3E20622C1000200666 /* TPTGCurrency.m */,
+				80EA2E4920622DF800200666 /* TPTGBaseServiceObject.h */,
+				80EA2E4A20622DF800200666 /* TPTGBaseServiceObject.m */,
+			);
+			name = Product;
+			sourceTree = "<group>";
+		};
+		80EA2E4D20623D9900200666 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8017EBF0205ED1BC0024D227 /* TPTGThankyGiftCell.h */,
+				8017EBF1205ED1BC0024D227 /* TPTGThankyGiftCell.m */,
+				8017EBF2205ED1BC0024D227 /* TPTGThankyGiftCell.xib */,
+				80EA2E56206240E900200666 /* TPTGProductsView.h */,
+				80EA2E57206240E900200666 /* TPTGProductsView.m */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		930384151811754100CAC996 /* Collection Menu */ = {
@@ -19597,7 +19727,7 @@
 		D08805AD156E8F3600311537 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D08805AC156E8F3600311537 /* Telegram.app */,
+				D08805AC156E8F3600311537 /* Thanky Telegram.app */,
 				D02601D71A55CA2300716290 /* Share.appex */,
 				68744C0D1BB1A9F700FE6542 /* watchkitapp.app */,
 				68744C191BB1A9F700FE6542 /* watchkitapp Extension.appex */,
@@ -22819,6 +22949,7 @@
 				D0115F241F41F1300039383E /* TLRPCaccount_updateUsername.h in Headers */,
 				D01F94D81E5E3DB5002627A1 /* STPDelegateProxy.h in Headers */,
 				D011603A1F41F1310039383E /* TLRPCmessages_readEncryptedHistory.h in Headers */,
+				80731757206119A400FE13AE /* TPTGBaseServiceRequest.h in Headers */,
 				D0115FD81F41F1310039383E /* TLRPCmessages_acceptEncryption.h in Headers */,
 				D01161F21F41F1340039383E /* TLcontacts_ImportedContacts.h in Headers */,
 				D01161DE1F41F1340039383E /* TLConfig.h in Headers */,
@@ -22867,6 +22998,7 @@
 				D013FA971CDA6AF800EF175C /* TGRemoteRecentPeerSet.h in Headers */,
 				D01161D41F41F1340039383E /* TLChatLocated.h in Headers */,
 				D0DCF5861AEDCE1600D5B7A1 /* TGGroupInfoShareLinkLinkItem.h in Headers */,
+				80EA2E6020625D8800200666 /* TPTGPaymentRequest.h in Headers */,
 				D06B21F51E49F90300EE2F70 /* TGPaymentCheckoutHeaderItemView.h in Headers */,
 				D07BCA5B1F2B212300ED97AA /* TGModernGalleryMessageImageItem.h in Headers */,
 				D0F7B4AE1C202B81008C5DB1 /* TGDocumentEncryptedFileReference.h in Headers */,
@@ -23118,6 +23250,7 @@
 				D01160B21F41F1320039383E /* TLRPCupdates_getState.h in Headers */,
 				D09A6B6F1C1A054600134687 /* TLMessages_BotResults$botResults.h in Headers */,
 				D04324A71DC0E8AF00E0C528 /* TGInstantPageControllerNavigationBar.h in Headers */,
+				80EA2E3B20622BCB00200666 /* TPTGPrice.h in Headers */,
 				D01162421F41F1350039383E /* TLhelp_TermsOfService.h in Headers */,
 				D082953C1BACA7BC00240F69 /* TGChannelModeratorController.h in Headers */,
 				D01161921F41F1330039383E /* TLaccount_PrivacyRules.h in Headers */,
@@ -23317,6 +23450,7 @@
 				D01161301F41F1330039383E /* NSArray_Document.h in Headers */,
 				D0C6AF591A7816140046833D /* TGSharedMediaFilesEmptyView.h in Headers */,
 				D011617E1F41F1330039383E /* NSArray_string.h in Headers */,
+				80EA2E1E20621DCA00200666 /* TPTGProduct.h in Headers */,
 				D011623C1F41F1350039383E /* TLhelp_AppUpdate.h in Headers */,
 				D044E1671B2AFCBD001EE087 /* TGChatSearchController.h in Headers */,
 				D0C674641CB52C3C00183765 /* TLBotInlineMessage$botInlineMessageMediaContact.h in Headers */,
@@ -23642,6 +23776,7 @@
 				D01161561F41F1330039383E /* NSArray_long.h in Headers */,
 				D0115FE21F41F1310039383E /* TLRPCmessages_deactivateChat.h in Headers */,
 				D09262A51D86DEA400742741 /* TLInputMediaUploadedDocument.h in Headers */,
+				80EA2E58206240E900200666 /* TPTGProductsView.h in Headers */,
 				68B63D781BB25B8D00205AC3 /* TGChatMessageListSignal.h in Headers */,
 				D01BAA741ED4823400295217 /* TGChannelAdminLogEntry.h in Headers */,
 				D0115F381F41F1300039383E /* TLRPCauth_resetAccountPassword.h in Headers */,
@@ -23747,6 +23882,7 @@
 				D053A3A01F15049E00E2D58A /* TLMessageMedia$messageMediaDocument.h in Headers */,
 				D0249BC81ABF5B470076ECBF /* GDGoogleDriveClientManager.h in Headers */,
 				D0115F1C1F41F12F0039383E /* TLRPCaccount_updateDeviceLocked.h in Headers */,
+				8073176120611E9000FE13AE /* TPTGProductsManager.h in Headers */,
 				D01F95031E5E3DB5002627A1 /* STPRememberMePaymentCell.h in Headers */,
 				D01F94991E5E3DB4002627A1 /* Fabric.h in Headers */,
 				D051B10E1B04EC98003AFD52 /* TGPhonebookNumber.h in Headers */,
@@ -23981,7 +24117,7 @@
 				D01161281F41F1330039383E /* NSArray_DcOption.h in Headers */,
 				D011619C1F41F1330039383E /* TLauth_CodeType.h in Headers */,
 				D01F94DA1E5E3DB5002627A1 /* STPDispatchFunctions.h in Headers */,
-				8017EBF3205ED1BC0024D227 /* ThankyGiftCell.h in Headers */,
+				8017EBF3205ED1BC0024D227 /* TPTGThankyGiftCell.h in Headers */,
 				D01F951D1E5E3DB5002627A1 /* UIToolbar+Stripe_InputAccessory.h in Headers */,
 				D0C09C681A6E974D008369D7 /* TGSharedMediaCollectionLayout.h in Headers */,
 				D011620A1F41F1340039383E /* TLDcNetworkStats.h in Headers */,
@@ -24016,9 +24152,11 @@
 				D05DE7FD1AB859F900293D10 /* TGReplyHeaderImageModel.h in Headers */,
 				D0115F101F41F12F0039383E /* TLRPCaccount_resetAuthorization.h in Headers */,
 				D0C6AEF81A71CD660046833D /* TGSharedFileSignals.h in Headers */,
+				80EA2E3F20622C1000200666 /* TPTGCurrency.h in Headers */,
 				D011623E1F41F1350039383E /* TLhelp_InviteText.h in Headers */,
 				D0115F141F41F12F0039383E /* TLRPCaccount_setAccountTTL.h in Headers */,
 				D01F950D1E5E3DB5002627A1 /* STPSwitchTableViewCell.h in Headers */,
+				80731750206118B500FE13AE /* TPTGServiceProvider.h in Headers */,
 				D01162AA1F4242780039383E /* TGUnseenPeerMentionsState.h in Headers */,
 				D0C09C661A6E974D008369D7 /* TGSharedMediaAvailabilityState.h in Headers */,
 				D0C80D891A97A58E00D5DF8A /* TGAccessChecker.h in Headers */,
@@ -24059,6 +24197,7 @@
 				D04325031DC3A97C00E0C528 /* TGItemCollectionGalleryItemView.h in Headers */,
 				D0BB4E651F27821E00E90812 /* emoji_suggestions_data.h in Headers */,
 				D0115F801F41F1300039383E /* TLRPCcontacts_block.h in Headers */,
+				80EA2E1B20621D1C00200666 /* TPTGProductsRequest.h in Headers */,
 				D01F94B21E5E3DB4002627A1 /* STPAddressViewModel.h in Headers */,
 				68E664981C7C88460048C519 /* TGOpenInCarouselCell.h in Headers */,
 				D011603E1F41F1310039383E /* TLRPCmessages_readHistory.h in Headers */,
@@ -24152,6 +24291,7 @@
 				68B63D861BB25B8D00205AC3 /* TGSendMessageSignals.h in Headers */,
 				D011627A1F41F1350039383E /* TLInputPrivacyKey.h in Headers */,
 				687D869E1D01F19900820510 /* TGPreviewAudioItemView.h in Headers */,
+				80EA2E7220626CD100200666 /* TPTGDownloadFileRequest.h in Headers */,
 				D051B00F1AF99E31003AFD52 /* TGStickerPackPreviewView.h in Headers */,
 				D01161C01F41F1340039383E /* TLChannelBannedRights.h in Headers */,
 				D011628E1F41F1350039383E /* TLKeyboardButton.h in Headers */,
@@ -24226,6 +24366,7 @@
 				D011619A1F41F1330039383E /* TLauth_CheckedPhone.h in Headers */,
 				D02478DA1E4E14A90083C3F3 /* TGCreditCardNumberCollectionItemView.h in Headers */,
 				D0249BBF1ABF5B470076ECBF /* GDGoogleDrive.h in Headers */,
+				80EA2E68206269F000200666 /* TPTGCompletePaymentRequest.h in Headers */,
 				D01160DA1F41F1320039383E /* TLShippingOption.h in Headers */,
 				D011605A1F41F1310039383E /* TLRPCmessages_sendBroadcast.h in Headers */,
 				D0DB9B4B1E3B43050040CE3A /* TLpayments_SavedInfo$payments_savedInfo.h in Headers */,
@@ -24238,6 +24379,7 @@
 				6804D8AE1D1D624E0082E71F /* TGGifGalleryAddAccessoryView.h in Headers */,
 				D07B66F21DD0F3550090A31F /* TGTransformImageView.h in Headers */,
 				D08FEE311ACC26130069FA9F /* TGPasswordConfirmationController.h in Headers */,
+				80EA2E4B20622DF800200666 /* TPTGBaseServiceObject.h in Headers */,
 				D0249BB21ABF5B470076ECBF /* GDFileManagerAlias_Private.h in Headers */,
 				D01160421F41F1310039383E /* TLRPCmessages_receivedMessages.h in Headers */,
 				D0C09C6E1A6E974D008369D7 /* TGSharedMediaDirectionFilter.h in Headers */,
@@ -24456,6 +24598,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8073173D2061108E00FE13AE /* PBXTargetDependency */,
 				D020FB011D99509500F279AA /* PBXTargetDependency */,
 				D0CB068C1ADC8DC6005E298F /* PBXTargetDependency */,
 				D061F3011A9290F80031BCBE /* PBXTargetDependency */,
@@ -24466,7 +24609,7 @@
 			);
 			name = Telegraph;
 			productName = Telegraph;
-			productReference = D08805AC156E8F3600311537 /* Telegram.app */;
+			productReference = D08805AC156E8F3600311537 /* Thanky Telegram.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -24490,7 +24633,7 @@
 					};
 					68744C0C1BB1A9F700FE6542 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 5S9L22WPCH;
+						DevelopmentTeam = X834Q8SBVP;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -24500,7 +24643,7 @@
 					};
 					68744C181BB1A9F700FE6542 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 5S9L22WPCH;
+						DevelopmentTeam = X834Q8SBVP;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -24583,6 +24726,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 807317332061104E00FE13AE /* Products */;
+					ProjectRef = 807317322061104E00FE13AE /* AMNetwork.xcodeproj */;
+				},
+				{
 					ProductGroup = D01777331F1F8FA80044446D /* Products */;
 					ProjectRef = D01777321F1F8FA80044446D /* LegacyComponents.xcodeproj */;
 				},
@@ -24618,6 +24765,13 @@
 			fileType = wrapper.framework;
 			path = libtgvoip.framework;
 			remoteRef = 692AB87B1E67591700706ACC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		807317372061104F00FE13AE /* libAMNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAMNetwork.a;
+			remoteRef = 807317362061104F00FE13AE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D01777371F1F8FA90044446D /* LegacyComponents.framework */ = {
@@ -24850,7 +25004,7 @@
 				D0D5D0011B7A69AD00DAF839 /* SharedMediaEmptyLinks@3x.png in Resources */,
 				D0E3529F1E5E4127007E6EB8 /* stp_icon_chevron_left@2x.png in Resources */,
 				D00C79231BBCA4CA00F979C8 /* HockeySDKResources.bundle in Resources */,
-				8017EBF5205ED1BC0024D227 /* ThankyGiftCell.xib in Resources */,
+				8017EBF5205ED1BC0024D227 /* TPTGThankyGiftCell.xib in Resources */,
 				930808BA18592DAA00E62B42 /* ModernContactListCreateGroupIcon@2x.png in Resources */,
 				68EE348F1C924931002F5419 /* OpenInMapsIcon@2x.png in Resources */,
 				93992D8E182A706C00F29746 /* ModernBubbleOutgoingPartial@2x.png in Resources */,
@@ -25951,6 +26105,7 @@
 				D01161771F41F1330039383E /* NSArray_ShippingOption.mm in Sources */,
 				936CD3D3186723C700FF241C /* TGEncryptionKeyViewController.m in Sources */,
 				D052F0B6157543FE00D51E59 /* TGSchema.m in Sources */,
+				80EA2E4C20622DF800200666 /* TPTGBaseServiceObject.m in Sources */,
 				D01161531F41F1330039383E /* NSArray_LangPackLanguage.mm in Sources */,
 				D089E0A01AC5B65A009A744B /* TGAuthSessionsEmptyView.m in Sources */,
 				D064EF971F69A62B00AC0398 /* TLRPCmessages_getRecentLocations.mm in Sources */,
@@ -26151,6 +26306,7 @@
 				9342137C18575C80003F000F /* TGGroupInfoSelectContactController.m in Sources */,
 				D01161291F41F1330039383E /* NSArray_DcOption.mm in Sources */,
 				0991B9C81FCB7445005EDFF2 /* TGDefaultPresentationPallete.m in Sources */,
+				80731751206118B500FE13AE /* TPTGServiceProvider.m in Sources */,
 				D01160EB1F41F1320039383E /* TLUpdate.mm in Sources */,
 				68B63C2A1BB258E300205AC3 /* TGBridgeChat.m in Sources */,
 				D0F2E1211E3BC16200759C97 /* TGPaymentAlertController.m in Sources */,
@@ -26523,6 +26679,7 @@
 				D05F09931C9C3BBC00BB6F96 /* TGMessageReplyButtonsModel.m in Sources */,
 				D0249A9A1ABCA67E0076ECBF /* TGDropboxItem.m in Sources */,
 				D01162331F41F1350039383E /* TLGeoPlaceName.mm in Sources */,
+				80EA2E1F20621DCA00200666 /* TPTGProduct.m in Sources */,
 				D0CB14A4199CEF8F00EBCEA7 /* TGGenericPeerMediaGalleryActionsAccessoryView.m in Sources */,
 				D08C712E1C4D186D00779C0F /* TGNetworkOverridesController.m in Sources */,
 				93AD55DD186308A90043B212 /* TGModernConversationEmptyListPlaceholderView.m in Sources */,
@@ -26600,6 +26757,7 @@
 				D01F94E71E5E3DB5002627A1 /* STPObscuredCardView.m in Sources */,
 				D008C1DA1C18CF76007D2855 /* TLWebPage$webPageExternal.mm in Sources */,
 				681653A31CC071B3006D88C2 /* TGForceTouchGestureRecognizer.m in Sources */,
+				80EA2E7320626CD100200666 /* TPTGDownloadFileRequest.m in Sources */,
 				D001A5AB1C64B26F003FB0E0 /* AttitudeESKF.cpp in Sources */,
 				D08BE0831BD95CEB0004F382 /* TGInlineVideoModel.m in Sources */,
 				93B0705C161CB45F0054C20F /* TGRawHttpRequest.m in Sources */,
@@ -26728,6 +26886,7 @@
 				D0C7357A1C88A44B00BB3149 /* TGCollectionStaticMultilineTextItemView.m in Sources */,
 				D01161451F41F1330039383E /* NSArray_InputPhoto.mm in Sources */,
 				D01F94C31E5E3DB4002627A1 /* STPBundleLocator.m in Sources */,
+				80EA2E69206269F000200666 /* TPTGCompletePaymentRequest.m in Sources */,
 				D01F949E1E5E3DB4002627A1 /* NSBundle+Stripe_AppName.m in Sources */,
 				681EF7861D12CBEF00B0DC38 /* TGModernGalleryVideoPlayerState.m in Sources */,
 				68EE34801C922CC8002F5419 /* TGOpenInBrowserItems.m in Sources */,
@@ -27003,6 +27162,7 @@
 				D0249BBC1ABF5B470076ECBF /* GDFileServiceSession.m in Sources */,
 				6844F8E21CCA723F00AB4ABE /* TGModernConversationInputAttachButton.m in Sources */,
 				932A9E9216641DCD00FEF7FE /* TGPeerSettingsActor.m in Sources */,
+				8073175C206119ED00FE13AE /* TPTGProductsRequest.m in Sources */,
 				932A9E9516641EBA00FEF7FE /* TGChangePeerSettingsActor.m in Sources */,
 				D066E99F18C6A88B00509410 /* opusfile.c in Sources */,
 				68F7D3BA1CADF1CC00265D0A /* TGPreviewPhotoItemView.m in Sources */,
@@ -27042,6 +27202,7 @@
 				D0FFBDE01BAB0E7300F532C9 /* TGChannelMembersController.m in Sources */,
 				D011603D1F41F1310039383E /* TLRPCmessages_readFeaturedStickers.mm in Sources */,
 				687D869F1D01F19900820510 /* TGPreviewAudioItemView.m in Sources */,
+				80EA2E6120625D8800200666 /* TPTGPaymentRequest.m in Sources */,
 				D0C6AEF91A71CD660046833D /* TGSharedFileSignals.m in Sources */,
 				D0115EC71F41F12F0039383E /* TLphone_DiscardedCall.mm in Sources */,
 				D01160191F41F1310039383E /* TLRPCmessages_getMessages.mm in Sources */,
@@ -27148,6 +27309,7 @@
 				93753ED116794C98008CC2C5 /* TGLoginCountryCell.m in Sources */,
 				D0EFBED41A1A863000FF33C3 /* TGChangePhoneNumberNumberController.m in Sources */,
 				D01160611F41F1310039383E /* TLRPCmessages_sendEncryptedService.mm in Sources */,
+				80731758206119A400FE13AE /* TPTGBaseServiceRequest.m in Sources */,
 				D0115E7B1F41F12F0039383E /* TLmessages_HighScores.mm in Sources */,
 				D074983D1B99FFC2005F30CC /* TLChat$channel.mm in Sources */,
 				D04324EB1DC279FB00E0C528 /* ImageResourceDatas.m in Sources */,
@@ -27247,6 +27409,7 @@
 				D03D95921B449ECD00E6B65B /* TGAttachmentSheetEmbedItemView.m in Sources */,
 				93340A3F16A83D9700F4BCBB /* TGLabelMenuItem.m in Sources */,
 				D01F950A1E5E3DB5002627A1 /* STPSMSCodeViewController.m in Sources */,
+				80EA2E3C20622BCB00200666 /* TPTGPrice.m in Sources */,
 				D006B36E1D1D61F90095A341 /* TGFeaturedStickerPacksController.m in Sources */,
 				93340A4216A848F700F4BCBB /* TGChangeNameActor.m in Sources */,
 				D0249BA31ABF5B470076ECBF /* GDClientCredential.m in Sources */,
@@ -27791,7 +27954,7 @@
 				D0113A2C1C08789100C30D67 /* TGCacheIndexingItem.m in Sources */,
 				D0381B981CA4750400BF709D /* TLauth_SentCode$auth_sentCode.mm in Sources */,
 				930808F9185B2DDA00E62B42 /* TGUserInfoEditingVariantCollectionItemView.m in Sources */,
-				8017EBF4205ED1BC0024D227 /* ThankyGiftCell.m in Sources */,
+				8017EBF4205ED1BC0024D227 /* TPTGThankyGiftCell.m in Sources */,
 				D011612B1F41F1330039383E /* NSArray_DestroySessionRes.mm in Sources */,
 				93992D711829234F00F29746 /* TGModernClockProgressViewModel.m in Sources */,
 				934134751853E77300480294 /* TGEditingScrollViewGestureRecognizer.m in Sources */,
@@ -27902,6 +28065,7 @@
 				D01160971F41F1320039383E /* TLRPCphotos_getWall.mm in Sources */,
 				D0CC4D7819F82134001E8D57 /* TGInstagramContentPropertiesActor.m in Sources */,
 				D0115F3D1F41F1300039383E /* TLRPCauth_sendInvites.mm in Sources */,
+				80EA2E4020622C1000200666 /* TPTGCurrency.m in Sources */,
 				68B63D411BB25B1F00205AC3 /* TGBridgeStateHandler.m in Sources */,
 				D01160B11F41F1320039383E /* TLRPCupdates_getDifference.mm in Sources */,
 				D01161631F41F1330039383E /* NSArray_PhoneConnection.mm in Sources */,
@@ -27975,6 +28139,8 @@
 				D0115FAF1F41F1300039383E /* TLRPCdestroy_sessions.mm in Sources */,
 				D098418E19CB9BE200CE5BB0 /* TLMetaObject.mm in Sources */,
 				D0115F411F41F1300039383E /* TLRPCauth_signUp.mm in Sources */,
+				8073176220611E9000FE13AE /* TPTGProductsManager.m in Sources */,
+				80EA2E59206240E900200666 /* TPTGProductsView.m in Sources */,
 				D0E0AB1D1DB6BC4B006060EE /* TGCallContext.m in Sources */,
 				930384331811A93A00CAC996 /* TGButtonCollectionItem.m in Sources */,
 				D01162731F41F1350039383E /* TLInputPeerNotifySettings.mm in Sources */,
@@ -28040,6 +28206,11 @@
 		68B22D071C11F32400EE8FF9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = pop;
+		};
+		8073173D2061108E00FE13AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AMNetwork;
+			targetProxy = 8073173C2061108E00FE13AE /* PBXContainerItemProxy */;
 		};
 		D020FAE41D99466A00F279AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -28783,6 +28954,7 @@
 					"$(PROJECT_DIR)/Telegraph/thirdparty",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/submodules/libtgvoip/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ThankyGifts",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -29406,6 +29578,7 @@
 					"$(PROJECT_DIR)/Telegraph/thirdparty",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/submodules/libtgvoip/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ThankyGifts",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Telegraph/Telegraph-Prefix.pch";
@@ -29428,6 +29601,7 @@
 					"$(SRCROOT)/../MtProtoKit/thirdparty/openssl",
 					thirdparty/SSignalKit,
 					submodules/libtgvoip,
+					"ThankyGifts/AMNetwork/**",
 				);
 				INFOPLIST_FILE = "Telegraph/Telegraph-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -29801,6 +29975,7 @@
 					"$(PROJECT_DIR)/Telegraph/thirdparty",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/submodules/libtgvoip/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ThankyGifts",
 				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -29824,6 +29999,7 @@
 					/Users/peter/Dropbox/workspace/ModernTelegram/MtProtoKit/openssl,
 					thirdparty/SSignalKit,
 					submodules/libtgvoip,
+					"ThankyGifts/AMNetwork/**",
 				);
 				INFOPLIST_FILE = "Telegraph/Telegraph-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -29893,6 +30069,7 @@
 					"$(PROJECT_DIR)/Telegraph/thirdparty",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/submodules/libtgvoip/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/ThankyGifts",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Telegraph/Telegraph-Prefix.pch";
